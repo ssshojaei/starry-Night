@@ -1,0 +1,103 @@
+:root {
+  --primary: #212121;
+  --secondary: #f6f6f6;
+}
+
+body {
+  background: var(--primary);
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+}
+
+.moon {
+  width: 300px;
+  height: 300px;
+  background: var(--secondary);
+  border-radius: 50%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  box-shadow: 0 0 40px var(--secondary);
+}
+
+.star {
+  display: block;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: var(--secondary);
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  z-index: 2;
+  animation: blink 4.5s linear 0s infinite normal;
+}
+
+.star-top,
+.star-bottom {
+  position: relative;
+  display: block;
+}
+
+.star-top::before,
+.star-top::after,
+.star-bottom::before,
+.star-bottom::after {
+  content: "";
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  border-radius: 40%;
+  position: absolute;
+}
+
+.star-top:before {
+  top: -24px;
+  left: -24px;
+}
+
+.star-top:after {
+  bottom: -24px;
+  left: 24px;
+}
+
+.star-bottom::before {
+  top: 24px;
+  left: -24px;
+}
+
+.star-bottom::after {
+  top: 24px;
+  left: 24px;
+}
+
+@keyframes blink {
+  0% {
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+  25% {
+    -webkit-transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+}
